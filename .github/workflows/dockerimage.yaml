@@ -13,7 +13,7 @@ jobs:
       name: Checkout repository
     
     - uses: mr-smithers-excellent/docker-build-push@v5
-      name: Build & push Web UI
+      name: multipaper-server
       with:
         image: multipaper-server
         target: multipaper-server
@@ -30,7 +30,7 @@ jobs:
       name: Checkout repository
     
     - uses: mr-smithers-excellent/docker-build-push@v5
-      name: Build & push Web UI
+      name: multipaper-master
       with:
         image: multipaper-master
         target: multipaper-master
