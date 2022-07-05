@@ -1,0 +1,39 @@
+name: Build Docker Images
+
+on: [push, pull_request]
+
+jobs:
+
+  multipaper-server:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout repository
+    
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Web UI
+      with:
+        image: multipaper-server
+        target: multipaper-server
+        registry: ghcr.io
+        username: ${{ secrets.GHCR_USERNAME }}
+        password: ${{ secrets.GHCR_TOKEN }} 
+
+  multipaper-master:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout repository
+    
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Web UI
+      with:
+        image: multipaper-master
+        target: multipaper-master
+        registry: ghcr.io
+        username: ${{ secrets.GHCR_USERNAME }}
+        password: ${{ secrets.GHCR_TOKEN }} 
