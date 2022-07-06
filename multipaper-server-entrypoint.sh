@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$ENABLE_NAME_GENERATION" = false];
+if [ "$ENABLE_NAME_GENERATION" = false ];
 then
     export MULTIPAPER_BUNGEECORD_NAME="$(uuidgen)"
 fi
