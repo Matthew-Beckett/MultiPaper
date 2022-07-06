@@ -12,3 +12,8 @@ resources:
   - ./multipaper-master-deployment.yaml
   - ./multipaper-master-service.yaml
   - ./multipaper-server-deployment.yaml
+
+configMapGenerator:
+  - name: spigot.yml
+    files: 
+      - configMaps/spigot.yml

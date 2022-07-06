@@ -21,6 +21,10 @@ spec:
           env:
             - name: MULTIPAPER_MASTER_ADDRESS
               value: "multipaper-master.multipaper.svc.cluster.local:25585"
+          volumes:
+            - name: config
+              configMap:
+                name: spigot.yml
           resources:
             limits:
               memory: 1.5G
