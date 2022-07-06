@@ -8,5 +8,9 @@ spec:
       protocol: TCP
       port: 25585
       targetPort: multipaper
+    - name: proxy
+      protocol: TCP
+      port: 25565
+      targetPort: proxy
   selector:
     app: multipaper-master

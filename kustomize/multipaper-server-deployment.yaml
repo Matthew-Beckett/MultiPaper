@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: multipaper-master
+  name: multipaper-server
 spec:
   replicas: 1
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: multipaper-master
+      app: multipaper-server
   template:
     metadata:
       labels:
-        app: multipaper-master
+        app: multipaper-server
     spec:
       containers:
-        - name: multipaper-master
-          image: ghcr.io/matthew-beckett/multipaper-master
+        - name: multipaper-server
+          image: ghcr.io/matthew-beckett/multipaper-server
           env:
-            - name: MULTIPAPER_MASTER_PORT
-              value: "25585"
+            - name: MULTIPAPER_MASTER_ADDRESS
+              value: "127.0.0.1:255585"
           resources:
             limits:
               memory: 1.5G
@@ -30,9 +30,6 @@ spec:
           ports:
             - name: multipaper
               containerPort: 25585
-              protocol: TCP
-            - name: proxy
-              containerPort: 25565
               protocol: TCP
           livenessProbe:
             tcpSocket:
