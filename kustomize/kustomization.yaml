@@ -3,9 +3,9 @@ kind: Kustomization
 
 images:
   - name: ghcr.io/matthew-beckett/multipaper-server
-    newTag: feature-dockerfile-a5325c2
+    newTag: feature-dockerfile-d8fafe7
   - name: ghcr.io/matthew-beckett/multipaper-master
-    newTag: feature-dockerfile-a5325c2
+    newTag: feature-dockerfile-d8fafe7
 
 resources:
   - ./multipaper-master-deployment.yaml
