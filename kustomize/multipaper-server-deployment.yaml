@@ -19,7 +19,7 @@ spec:
           image: ghcr.io/matthew-beckett/multipaper-server
           env:
             - name: MULTIPAPER_MASTER_ADDRESS
-              value: "127.0.0.1:255585"
+              value: "127.0.0.1:25585"
           resources:
             limits:
               memory: 1.5G
@@ -27,23 +27,3 @@ spec:
             requests:
               cpu: 250m
               memory: 1G
-          ports:
-            - name: multipaper
-              containerPort: 25585
-              protocol: TCP
-          livenessProbe:
-            tcpSocket:
-              port: 25585
-            initialDelaySeconds: 30
-            timeoutSeconds: 1
-            periodSeconds: 5
-            successThreshold: 1
-            failureThreshold: 10
-          readinessProbe:
-            tcpSocket:
-              port: 25585
-            initialDelaySeconds: 30
-            timeoutSeconds: 1
-            periodSeconds: 5
-            successThreshold: 1
-            failureThreshold: 10

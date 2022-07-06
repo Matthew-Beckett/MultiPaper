@@ -10,3 +10,4 @@ images:
 resources:
   - ./multipaper-master-deployment.yaml
   - ./multipaper-master-service.yaml
+  - ./multipaper-server-deployment.yaml
