@@ -15,5 +15,6 @@ resources:
 
 configMapGenerator:
   - name: spigot.yml
+    namespace: multipaper
     files: 
       - configMaps/spigot.yml
