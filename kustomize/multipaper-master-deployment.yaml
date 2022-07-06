@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multipaper-master
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: multipaper-master
+  template:
+    metadata:
+      labels:
+        app: multipaper-master
+    spec:
+      serviceAccountName: multipaper-master
+      containers:
+        - name: multipaper-master
+          image: ghcr.io/matthew-beckett/multipaper-server
+          env:
+            - name: MULTIPAPER_MASTER_PORT
+              value: "25585"
+          resources:
+            limits:
+              memory: 1.5G
+              cpu: 500m
+            requests:
+              cpu: 250m
+              memory: 1G
+          ports:
+            - name: multipaper
+              containerPort: 25585
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 25585
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 10
+          readinessProbe:
+            tcpSocket:
+              port: 25585
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 10
