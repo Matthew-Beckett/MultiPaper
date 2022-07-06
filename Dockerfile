@@ -4,8 +4,10 @@ ENV MULTIPAPER_MASTER_JAR_URL=http://185.185.126.240:9000/public-bucket/MultiPap
 ENV MULTIPAPER_MASTER_PORT=25585 MULTIPAPER_MASTER_PROXY_PORT=25565
 
 ADD $MULTIPAPER_MASTER_JAR_URL /opt/multipaper-master/multipaper-master.jar
+RUN apt update && apt install -y --no-install-recommends wget
+COPY ./multipaper-master-entrypoint.sh /entrypoint.sh
 
-CMD java -jar /opt/multipaper-master/multipaper-master.jar $MULTIPAPER_MASTER_PORT $MULTIPAPER_MASTER_PROXY_PORT
+ENTRYPOINT ["/entrypoint.sh"]
 
 
 FROM eclipse-temurin:17-jre as multipaper-server
