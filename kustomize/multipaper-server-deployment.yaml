@@ -21,10 +21,10 @@ spec:
           env:
             - name: MULTIPAPER_MASTER_ADDRESS
               value: "multipaper-master.multipaper.svc.cluster.local:25585"
-          volumes:
-            - name: config
-              configMap:
-                name: spigot.yml
+          volumeMounts:
+            - mountPath: /opt/multipaper-server/spigot.yml
+              name: spigot-config
+              subPath: spigot.yml
           resources:
             limits:
               memory: 1.5G
@@ -32,3 +32,9 @@ spec:
             requests:
               cpu: 250m
               memory: 1G
+      volumes:
+        - name: spigot-config
+          projected:
+            sources:
+              - configMap:
+                  name: spigot.yml
