@@ -46,3 +46,19 @@ jobs:
         tags: ${{ steps.multipaper-master-meta.outputs.tags }}
         labels: ${{ steps.multipaper-master-meta.outputs.labels }}
         target: multipaper-master
+
+    - name: Docker meta for matthew-beckett/multipaper-server
+      id: multipaper-server-meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ghcr.io/matthew-beckett/multipaper-server
+
+    - name: Build and push multipaper-server for ${{ env.TARGET_PLATFORMS }}
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        platforms: ${{ env.TARGET_PLATFORMS }}
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.multipaper-server-meta.outputs.tags }}
+        labels: ${{ steps.multipaper-server-meta.outputs.labels }}
+        target: multipaper-server
