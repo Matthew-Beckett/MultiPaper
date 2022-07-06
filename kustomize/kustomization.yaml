@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: multipaper 
+
 images:
   - name: ghcr.io/matthew-beckett/multipaper-server
     newTag: feature-dockerfile
@@ -8,6 +10,7 @@ images:
     newTag: feature-dockerfile
 
 resources:
+  - ./multipaper-namespace.yaml
   - ./multipaper-master-deployment.yaml
   - ./multipaper-master-service.yaml
   - ./multipaper-server-deployment.yaml

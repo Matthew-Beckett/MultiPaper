@@ -19,7 +19,7 @@ spec:
           image: ghcr.io/matthew-beckett/multipaper-server
           env:
             - name: MULTIPAPER_MASTER_ADDRESS
-              value: "127.0.0.1:25585"
+              value: "multipaper-master.multipaper.cluster.svc.local:25585"
           resources:
             limits:
               memory: 1.5G
