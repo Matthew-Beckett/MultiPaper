@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: multipaper-master
-          image: ghcr.io/matthew-beckett/multipaper-server
+          image: ghcr.io/matthew-beckett/multipaper-master
           env:
             - name: MULTIPAPER_MASTER_PORT
               value: "25585"
