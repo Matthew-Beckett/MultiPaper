@@ -21,6 +21,26 @@ spec:
           env:
             - name: MULTIPAPER_MASTER_ADDRESS
               value: "multipaper-master.multipaper.svc.cluster.local:25585"
+          ports:
+            - name: minecraft
+              containerPort: 25565
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 25565
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 10
+          readinessProbe:
+            tcpSocket:
+              port: 25565
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 10
           volumeMounts:
             - mountPath: /opt/multipaper-server/spigot.yml
               name: spigot-config
