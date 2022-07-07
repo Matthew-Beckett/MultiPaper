@@ -8,4 +8,5 @@ fi
 
 
 echo "Starting multipaper-master instance on port $MULTIPAPER_MASTER_PORT with proxy on $MULTIPAPER_MASTER_PROXY_PORT"
-java -jar /opt/multipaper-master/multipaper-master.jar "$MULTIPAPER_MASTER_PORT" "$MULTIPAPER_MASTER_PROXY_PORT"
+cd /opt/multipaper-master
+java -jar ./multipaper-master.jar "$MULTIPAPER_MASTER_PORT" "$MULTIPAPER_MASTER_PROXY_PORT"
