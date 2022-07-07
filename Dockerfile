@@ -13,7 +13,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 FROM eclipse-temurin:17-jre as multipaper-server
 
 ENV MULTIPAPER_SERVER_JAR_URL=http://185.185.126.240:9000/public-bucket/MultiPaper-paperclip-1.19-R0.1-SNAPSHOT-reobf.jar
-ENV JVM_RAM_ALLOCATION=1024M ACCEPT_EULA=false ENABLE_NAME_GENERATION=true MULTIPAPER_BUNGEECORD_NAME="server1" MULTIPAPER_MASTER_ADDRESS=127.0.0.1:25585 VIEW_DISTANCE=16 PROXY_PROTOCOL=false
+ENV ACCEPT_EULA=false ENABLE_NAME_GENERATION=true MULTIPAPER_BUNGEECORD_NAME="server1" MULTIPAPER_MASTER_ADDRESS=127.0.0.1:25585 VIEW_DISTANCE=16 PROXY_PROTOCOL=false
 
 ADD $MULTIPAPER_SERVER_JAR_URL /opt/multipaper-server/multipaper-server.jar
 RUN apt update && apt install -y --no-install-recommends uuid-runtime
