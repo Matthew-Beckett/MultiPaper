@@ -23,11 +23,11 @@ spec:
               value: "25585"
           resources:
             limits:
-              memory: 1.5G
+              memory: 1G
               cpu: 500m
             requests:
-              cpu: 250m
-              memory: 1G
+              cpu: 100m
+              memory: 250m
           ports:
             - name: multipaper
               containerPort: 25585
