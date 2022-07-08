@@ -1,5 +1,7 @@
 # MultiPaper
 
+This fork is now archived, all work relating to Multipaper in Kubernetes (I.e HelmChart, Dockerfiles, and Kustomizations) has been merged upstream to [MultipaperK8S](https://github.com/MultiPaperK8s).
+
 [![Discord](https://img.shields.io/discord/937309618743427113.svg?color=738ad6&label=Join%20the%20Discord%20server&logo=discord&logoColor=ffffff)](https://discord.gg/dN3WCZkSRV)
 
 **MultiPaper is in public beta.** Most features work for most players most of
